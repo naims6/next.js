@@ -7,10 +7,15 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="w-full sticky top-0 z-50  shadow">
+    <nav className="w-full sticky top-0 z-50 bg-white shadow">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
         {/* Logo */}
-        <h1 className="text-xl font-bold text-green-600">MyParcel</h1>
+        <Link
+          href="/"
+          className="text-xl font-bold text-green-600 cursor-pointer"
+        >
+          FlashMart
+        </Link>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
