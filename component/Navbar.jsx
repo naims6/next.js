@@ -1,10 +1,22 @@
 "use client";
-import { useState } from "react";
+import { use, useState } from "react";
 import { Menu, X } from "lucide-react"; // for mobile icons
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { user, logOutUser } = use(AuthContext);
+
+  const handleUserLogout = () => {
+    logOutUser()
+      .then((d) => {
+        alert("User Logged Out");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <nav className="w-full sticky top-0 z-50 bg-white shadow">
@@ -28,28 +40,44 @@ export default function Navbar() {
           >
             All Product
           </Link>
-          <Link href="/home" className="cursor-pointer hover:text-green-600">
-            Pricing
+          <Link
+            href="/add-product"
+            className="cursor-pointer hover:text-green-600"
+          >
+            Add Product
           </Link>
-          <Link href="/home" className="cursor-pointer hover:text-green-600">
-            Contact
+          <Link
+            href="/manage-product"
+            className="cursor-pointer hover:text-green-600"
+          >
+            Manage Product
           </Link>
 
           {/* Login / Register */}
-          <div className="flex gap-2">
+          {user ? (
             <Link
-              href="/login"
+              onClick={handleUserLogout}
+              href="/"
               className="px-4 py-2 bg-green-500 text-white rounded cursor-pointer"
             >
-              Login
+              Logout
             </Link>
-            <Link
-              href="/register"
-              className="px-4 py-2 bg-green-500 text-white rounded cursor-pointer"
-            >
-              Register
-            </Link>
-          </div>
+          ) : (
+            <div className="flex gap-2">
+              <Link
+                href="/login"
+                className="px-4 py-2 bg-green-500 text-white rounded cursor-pointer"
+              >
+                Login
+              </Link>
+              <Link
+                href="/register"
+                className="px-4 py-2 bg-green-500 text-white rounded cursor-pointer"
+              >
+                Register
+              </Link>
+            </div>
+          )}
         </ul>
 
         {/* Mobile Menu Button */}
