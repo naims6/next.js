@@ -19,10 +19,21 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
-          <li className="cursor-pointer hover:text-green-600">Home</li>
-          <li className="cursor-pointer hover:text-green-600">Services</li>
-          <li className="cursor-pointer hover:text-green-600">Pricing</li>
-          <li className="cursor-pointer hover:text-green-600">Contact</li>
+          <Link href="/" className="cursor-pointer hover:text-green-600">
+            Home
+          </Link>
+          <Link
+            href="/allproduct"
+            className="cursor-pointer hover:text-green-600"
+          >
+            All Product
+          </Link>
+          <Link href="/home" className="cursor-pointer hover:text-green-600">
+            Pricing
+          </Link>
+          <Link href="/home" className="cursor-pointer hover:text-green-600">
+            Contact
+          </Link>
 
           {/* Login / Register */}
           <div className="flex gap-2">
