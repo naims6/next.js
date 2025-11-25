@@ -5,7 +5,7 @@ export default async function ItemDetailsPage({ params }) {
   const { id } = await params;
 
   const { data } = await axios(
-    `http://next-js-server-inky.vercel.app/all-product/${id}`
+    `https://next-js-server-inky.vercel.app/all-product/${id}`
   );
   const product = data[0];
 

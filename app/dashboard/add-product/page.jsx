@@ -24,7 +24,7 @@ const AddProduct = () => {
     e.preventDefault();
 
     axios
-      .post("http://next-js-server-inky.vercel.app/all-product", form)
+      .post("https://next-js-server-inky.vercel.app/all-product", form)
       .then((data) => {
         if (data.data.insertedId) {
           alert("Product added successfully!");

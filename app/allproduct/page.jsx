@@ -29,7 +29,7 @@ export default function ItemsPage() {
 
   useEffect(() => {
     axios
-      .get("http://next-js-server-inky.vercel.app/all-product")
+      .get("https://next-js-server-inky.vercel.app/all-product")
       .then((res) => {
         setProducts(res.data);
         setLoading(false);

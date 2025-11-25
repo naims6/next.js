@@ -3,7 +3,7 @@ import React from "react";
 
 const useAxiosSecure = () => {
   const instance = axios.create({
-    baseURL: "http://next-js-server-inky.vercel.app",
+    baseURL: "https://next-js-server-inky.vercel.app",
   });
   return instance;
 };

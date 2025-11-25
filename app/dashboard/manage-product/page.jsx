@@ -15,7 +15,7 @@ export default function ManageProductsPage() {
     if (confirm("Are you sure you want to delete this product?")) {
       setProducts(products.filter((p) => p._id !== id));
       axios
-        .delete(`http://next-js-server-inky.vercel.app/all-product/${id}`)
+        .delete(`https://next-js-server-inky.vercel.app/all-product/${id}`)
         .then((data) => {
           if (data.data.deletedCount) {
             alert("Your Product is deleted");
@@ -25,9 +25,11 @@ export default function ManageProductsPage() {
   };
 
   useEffect(() => {
-    axios.get("http://next-js-server-inky.vercel.app/all-product").then((d) => {
-      setProducts(d.data);
-    });
+    axios
+      .get("https://next-js-server-inky.vercel.app/all-product")
+      .then((d) => {
+        setProducts(d.data);
+      });
   }, []);
 
   if (loading) return <p>Loading...</p>;
