@@ -4,15 +4,6 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-/**
- * src/app/items/page.jsx
- * Items (Products) list page — responsive, simple & polished.
- *
- * Notes:
- * - Images: place images under /public/products/*.jpg or use external URLs.
- * - Styling uses Tailwind CSS (classes like grid, rounded-xl, shadow, line-clamp-2).
- */
-
 const SAMPLE_PRODUCTS = [
   {
     id: "p1",

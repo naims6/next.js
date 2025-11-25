@@ -6,7 +6,7 @@ import { AuthContext } from "@/context/AuthContext";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const { user, logOutUser } = use(AuthContext);
+  const { user, logOutUser, loading } = use(AuthContext);
 
   const handleUserLogout = () => {
     logOutUser()
@@ -17,6 +17,10 @@ export default function Navbar() {
         console.log(err);
       });
   };
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <nav className="w-full sticky top-0 z-50 bg-white shadow">
@@ -41,13 +45,13 @@ export default function Navbar() {
             All Product
           </Link>
           <Link
-            href="/add-product"
+            href="/dashboard/add-product"
             className="cursor-pointer hover:text-green-600"
           >
             Add Product
           </Link>
           <Link
-            href="/manage-product"
+            href="/dashboard/manage-product"
             className="cursor-pointer hover:text-green-600"
           >
             Manage Product

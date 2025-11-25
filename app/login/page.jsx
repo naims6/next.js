@@ -14,6 +14,7 @@ export default function LoginPage() {
     signInWithGoogle()
       .then((d) => {
         console.log(d);
+        route.push("/");
       })
       .catch((err) => {
         console.log(err);
