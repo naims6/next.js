@@ -1,35 +1,27 @@
 "use client";
 import { AuthContext } from "@/context/AuthContext";
+import axios from "axios";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 
 export default function ManageProductsPage() {
   const { user, loading } = use(AuthContext);
   const route = useRouter();
 
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      title: "Laptop",
-      price: 1200,
-    },
-    {
-      id: 2,
-      title: "Mobile",
-      price: 800,
-    },
-    {
-      id: 3,
-      title: "Headphones",
-      price: 150,
-    },
-  ]);
+  const [products, setProducts] = useState([]);
 
   const handleDelete = (id) => {
     if (confirm("Are you sure you want to delete this product?")) {
       setProducts(products.filter((p) => p.id !== id));
     }
   };
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/all-product").then((d) => {
+      setProducts(d.data);
+    });
+  }, []);
 
   if (loading) return <p>Loading...</p>;
   if (!user) {
@@ -52,18 +44,18 @@ export default function ManageProductsPage() {
             </tr>
           </thead>
           <tbody>
-            {products.map((item) => (
+            {products.map((item, index) => (
               <tr key={item.id} className="border-b">
-                <td className="p-3 border">{item.id}</td>
+                <td className="p-3 border">{index + 1}</td>
                 <td className="p-3 border">{item.title}</td>
                 <td className="p-3 border">${item.price}</td>
                 <td className="p-3 border flex gap-3">
-                  <a
-                    href={`/allproduct/${item.id}`}
+                  <Link
+                    href={`/allproduct/${item._id}`}
                     className="px-3 py-1 bg-blue-600 text-white rounded text-sm hover:bg-blue-700"
                   >
                     View
-                  </a>
+                  </Link>
 
                   <button
                     onClick={() => handleDelete(item.id)}

@@ -1,6 +1,13 @@
+import axios from "axios";
+import Image from "next/image";
+
 export default async function ItemDetailsPage({ params }) {
   const { id } = await params;
   console.log("parammm", id);
+
+  const { data } = await axios(`http://localhost:3001/all-product/${id}`);
+  const product = data[0];
+  console.log(product);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
@@ -12,16 +19,23 @@ export default async function ItemDetailsPage({ params }) {
         </button> */}
 
       <div className="bg-white border rounded-xl shadow p-6">
-        <div className="h-64 bg-gray-200 rounded-lg mb-6"></div>
+        <div className="h-64 bg-gray-200 rounded-lg mb-6">
+          <Image
+            width={250}
+            height={250}
+            src={product.img}
+            alt={product.title}
+            className="object-cover w-full h-full"
+          />
+        </div>
 
-        <h1 className="text-3xl font-bold mb-3">Product {id}</h1>
+        <h1 className="text-3xl font-bold mb-3">{product.title}</h1>
 
-        <p className="opacity-80 mb-4">
-          This is a full description for product {id}. You can fetch real data
-          from your backend or Firebase here.
+        <p className="opacity-80 mb-4">{product.short}</p>
+
+        <p className="font-semibold text-indigo-600 text-xl mb-6">
+          {product.price}
         </p>
-
-        <p className="font-semibold text-indigo-600 text-xl mb-6">$49.99</p>
 
         <button className="px-6 py-3 bg-indigo-600 text-white rounded-lg text-sm hover:bg-indigo-700">
           Buy Now
