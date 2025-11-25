@@ -23,10 +23,7 @@ const AddProduct = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("New Product:", form);
-
     axios.post("http://localhost:3001/all-product", form).then((data) => {
-      console.log(data.data);
       if (data.data.insertedId) {
         alert("Product added successfully!");
         route.push("/allproduct");

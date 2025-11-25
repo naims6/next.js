@@ -7,7 +7,7 @@ import React, { use, useEffect, useState } from "react";
 
 export default function ManageProductsPage() {
   const { user, loading } = use(AuthContext);
-  const route = useRouter();
+  const router = useRouter();
 
   const [products, setProducts] = useState([]);
 
@@ -30,7 +30,7 @@ export default function ManageProductsPage() {
 
   if (loading) return <p>Loading...</p>;
   if (!user) {
-    route.push("/login");
+    router.push("/login");
     return;
   }
 
@@ -50,7 +50,7 @@ export default function ManageProductsPage() {
           </thead>
           <tbody>
             {products.map((item, index) => (
-              <tr key={item.id} className="border-b">
+              <tr key={item._id} className="border-b">
                 <td className="p-3 border">{index + 1}</td>
                 <td className="p-3 border">{item.title}</td>
                 <td className="p-3 border">${item.price}</td>

@@ -11,7 +11,6 @@ export default function ItemsPage() {
   const [category, setCategory] = useState("All");
   const [loading, setLoading] = useState(true);
 
-  console.log(products);
   const categories = useMemo(() => {
     const set = new Set(products.map((p) => p.category));
     return ["All", ...Array.from(set)];
@@ -87,7 +86,7 @@ export default function ItemsPage() {
               {filtered.map((p) => (
                 <article
                   key={p._id}
-                  className="bg-white border rounded-xl shadow-sm hover:shadow-lg transition p-4 flex flex-col"
+                  className="bg-white border border-gray-400/40 rounded-xl shadow-sm hover:shadow-lg transition p-4 flex flex-col"
                 >
                   {/* Image */}
                   <div className="h-44 w-full rounded-lg overflow-hidden bg-gray-100 mb-4 flex items-center justify-center">

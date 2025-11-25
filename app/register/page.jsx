@@ -15,7 +15,6 @@ export default function RegisterPage() {
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((d) => {
-        console.log(d);
         router.push("/");
       })
       .catch((err) => {
@@ -25,7 +24,6 @@ export default function RegisterPage() {
 
   // register form submit
   const onSubmit = (data) => {
-    console.log(data);
     const { name, email, password } = data;
     registerUser(email, password)
       .then((data) => {
@@ -33,7 +31,6 @@ export default function RegisterPage() {
           displayName: name,
         }).then((d) => {
           router.push("/");
-          console.log(data.user);
         });
       })
       .catch((err) => {

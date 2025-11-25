@@ -13,7 +13,6 @@ export default function LoginPage() {
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((d) => {
-        console.log(d);
         route.push("/");
       })
       .catch((err) => {

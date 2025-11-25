@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎨 Flash Mart
 
-## Getting Started
+> A modern Next.js application built with the App Router, featuring secure authentication, protected routes, and a polished UI for managing and browsing products.
 
-First, run the development server:
+## 📋 Project Overview
+
+**Flash Mart** is a responsive web application designed to demonstrate the capabilities of **Next.js (App Router)** combined with **Firebase** and a custom **Express.js** backend.
+
+The application allows public users to browse products and view details. Authenticated users gain access to a dashboard where they can add new products and manage existing inventories. The project prioritizes layout consistency, responsiveness, and a clean visual hierarchy.
+
+### 🚀 Key Features
+
+- **Responsive Landing Page**: A 7-section layout including Hero, Features, Trending Items, Testimonials, and a sticky Navbar.
+- **Authentication**: Secure login using **Firebase** .
+- **Public Views**:
+  - **Product Listing**: Searchable grid layout with category filters.
+  - **Product Details**: Comprehensive view with images and meta-data.
+- **Protected Routes**
+  - **Add Product**: Form with validation to create new listings.
+  - **Manage Products**: Table view to delete or view owned items.
+- **Polished UI**: Built with Tailwind CSS, featuring consistent typography, hover states, and mobile adaptability.
+
+---
+
+## 🛠️ Technologies Used
+
+### Frontend
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React / React Icons
+- **HTTP Client**: Axios / Fetch API
+
+### Backend
+
+- **Server**: Node.js & Express.js
+- **Database**: MongoDB
+
+---
+
+## 🔗 Links
+
+- **Live Demo**: [next-js-tau-pearl.vercel.app]
+
+---
+
+## ⚙️ Installation & Setup
+
+Follow these steps to set up the project locally.
+
+### 1. Clone the Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [https://github.com/naims6/next.js.git](https://github.com/naims6/next.js.git)
+cd next.js
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

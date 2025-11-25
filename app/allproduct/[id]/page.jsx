@@ -3,11 +3,9 @@ import Image from "next/image";
 
 export default async function ItemDetailsPage({ params }) {
   const { id } = await params;
-  console.log("parammm", id);
 
   const { data } = await axios(`http://localhost:3001/all-product/${id}`);
   const product = data[0];
-  console.log(product);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">

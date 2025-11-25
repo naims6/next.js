@@ -28,7 +28,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-xl font-bold text-green-600 cursor-pointer"
+          className="text-2xl font-bold text-blue-600 cursor-pointer"
         >
           FlashMart
         </Link>
@@ -62,7 +62,7 @@ export default function Navbar() {
             <Link
               onClick={handleUserLogout}
               href="/"
-              className="px-4 py-2 bg-green-500 text-white rounded cursor-pointer"
+              className="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer"
             >
               Logout
             </Link>
@@ -70,13 +70,13 @@ export default function Navbar() {
             <div className="flex gap-2">
               <Link
                 href="/login"
-                className="px-4 py-2 bg-green-500 text-white rounded cursor-pointer"
+                className="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer"
               >
                 Login
               </Link>
               <Link
                 href="/register"
-                className="px-4 py-2 bg-green-500 text-white rounded cursor-pointer"
+                className="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer"
               >
                 Register
               </Link>
@@ -94,19 +94,56 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden bg-white shadow px-4 py-3">
           <ul className="flex flex-col gap-3 text-sm font-medium">
-            <li className="border-b pb-2">Home</li>
-            <li className="border-b pb-2">Services</li>
-            <li className="border-b pb-2">Pricing</li>
-            <li className="border-b pb-2">Contact</li>
+            <Link
+              href="/"
+              className="cursor-pointer hover:text-green-600 border-b border-gray-400 pb-2"
+            >
+              Home
+            </Link>
+            <Link
+              href="/allproduct"
+              className="cursor-pointer hover:text-green-600 border-b border-gray-400 pb-2"
+            >
+              All Product
+            </Link>
+            <Link
+              href="/dashboard/add-product"
+              className="cursor-pointer hover:text-green-600 border-b border-gray-400 pb-2"
+            >
+              Add Product
+            </Link>
+            <Link
+              href="/dashboard/manage-product"
+              className="cursor-pointer hover:text-green-600 border-b border-gray-400 pb-2"
+            >
+              Manage Product
+            </Link>
 
-            <div className="flex gap-2">
-              <Link className="px-4 py-2 bg-green-500 text-white rounded cursor-pointer">
-                Login
+            {/* Login / Register */}
+            {user ? (
+              <Link
+                onClick={handleUserLogout}
+                href="/"
+                className="px-4 py-2 bg-green-500 text-white rounded cursor-pointer"
+              >
+                Logout
               </Link>
-              <Link className="px-4 py-2 bg-green-500 text-white rounded cursor-pointer">
-                Register
-              </Link>
-            </div>
+            ) : (
+              <div className="flex gap-2">
+                <Link
+                  href="/login"
+                  className="px-4 py-2 bg-green-500 text-white rounded cursor-pointer"
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/register"
+                  className="px-4 py-2 bg-green-500 text-white rounded cursor-pointer"
+                >
+                  Register
+                </Link>
+              </div>
+            )}
           </ul>
         </div>
       )}
