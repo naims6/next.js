@@ -86,7 +86,7 @@ export default function ItemsPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {filtered.map((p) => (
                 <article
-                  key={p.id}
+                  key={p._id}
                   className="bg-white border rounded-xl shadow-sm hover:shadow-lg transition p-4 flex flex-col"
                 >
                   {/* Image */}

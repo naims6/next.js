@@ -1,5 +1,6 @@
 "use client";
 import { AuthContext } from "@/context/AuthContext";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, { use, useState } from "react";
 
@@ -9,11 +10,10 @@ const AddProduct = () => {
 
   const [form, setForm] = useState({
     title: "",
-    shortDesc: "",
-    fullDesc: "",
+    short: "",
+    category: "",
     price: "",
-    priority: "",
-    imageUrl: "",
+    img: "",
   });
 
   const handleChange = (e) => {
@@ -25,7 +25,13 @@ const AddProduct = () => {
 
     console.log("New Product:", form);
 
-    alert("Product added successfully!");
+    axios.post("http://localhost:3001/all-product", form).then((data) => {
+      console.log(data.data);
+      if (data.data.insertedId) {
+        alert("Product added successfully!");
+        route.push("/allproduct");
+      }
+    });
   };
 
   if (loading) return <p>Loading...</p>;
@@ -57,15 +63,15 @@ const AddProduct = () => {
         <div>
           <label className="font-medium">Short Description</label>
           <input
-            name="shortDesc"
-            value={form.shortDesc}
+            name="short"
+            value={form.short}
             onChange={handleChange}
             className="w-full border p-2 rounded mt-1"
             required
           />
         </div>
 
-        <div>
+        {/* <div>
           <label className="font-medium">Full Description</label>
           <textarea
             name="fullDesc"
@@ -75,7 +81,7 @@ const AddProduct = () => {
             rows={4}
             required
           />
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -90,10 +96,10 @@ const AddProduct = () => {
           </div>
 
           <div>
-            <label className="font-medium">Priority</label>
+            <label className="font-medium">Category</label>
             <input
-              name="priority"
-              value={form.priority}
+              name="category"
+              value={form.category}
               onChange={handleChange}
               className="w-full border p-2 rounded mt-1"
             />
@@ -103,8 +109,8 @@ const AddProduct = () => {
         <div>
           <label className="font-medium">Image URL (optional)</label>
           <input
-            name="imageUrl"
-            value={form.imageUrl}
+            name="img"
+            value={form.img}
             onChange={handleChange}
             className="w-full border p-2 rounded mt-1"
           />

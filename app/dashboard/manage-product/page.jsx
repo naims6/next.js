@@ -13,7 +13,12 @@ export default function ManageProductsPage() {
 
   const handleDelete = (id) => {
     if (confirm("Are you sure you want to delete this product?")) {
-      setProducts(products.filter((p) => p.id !== id));
+      setProducts(products.filter((p) => p._id !== id));
+      axios.delete(`http://localhost:3001/all-product/${id}`).then((data) => {
+        if (data.data.deletedCount) {
+          alert("Your Product is deleted");
+        }
+      });
     }
   };
 
@@ -58,7 +63,7 @@ export default function ManageProductsPage() {
                   </Link>
 
                   <button
-                    onClick={() => handleDelete(item.id)}
+                    onClick={() => handleDelete(item._id)}
                     className="px-3 py-1 bg-red-600 text-white rounded text-sm hover:bg-red-700"
                   >
                     Delete
