@@ -14,16 +14,18 @@ export default function ManageProductsPage() {
   const handleDelete = (id) => {
     if (confirm("Are you sure you want to delete this product?")) {
       setProducts(products.filter((p) => p._id !== id));
-      axios.delete(`http://localhost:3001/all-product/${id}`).then((data) => {
-        if (data.data.deletedCount) {
-          alert("Your Product is deleted");
-        }
-      });
+      axios
+        .delete(`http://next-js-server-inky.vercel.app/all-product/${id}`)
+        .then((data) => {
+          if (data.data.deletedCount) {
+            alert("Your Product is deleted");
+          }
+        });
     }
   };
 
   useEffect(() => {
-    axios.get("http://localhost:3001/all-product").then((d) => {
+    axios.get("http://next-js-server-inky.vercel.app/all-product").then((d) => {
       setProducts(d.data);
     });
   }, []);

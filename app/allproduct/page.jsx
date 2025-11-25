@@ -28,10 +28,12 @@ export default function ItemsPage() {
   }, [query, category, products]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/all-product").then((res) => {
-      setProducts(res.data);
-      setLoading(false);
-    });
+    axios
+      .get("http://next-js-server-inky.vercel.app/all-product")
+      .then((res) => {
+        setProducts(res.data);
+        setLoading(false);
+      });
   }, []);
 
   return (

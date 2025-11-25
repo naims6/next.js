@@ -4,7 +4,9 @@ import Image from "next/image";
 export default async function ItemDetailsPage({ params }) {
   const { id } = await params;
 
-  const { data } = await axios(`http://localhost:3001/all-product/${id}`);
+  const { data } = await axios(
+    `http://next-js-server-inky.vercel.app/all-product/${id}`
+  );
   const product = data[0];
 
   return (

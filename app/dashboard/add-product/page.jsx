@@ -23,12 +23,14 @@ const AddProduct = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:3001/all-product", form).then((data) => {
-      if (data.data.insertedId) {
-        alert("Product added successfully!");
-        route.push("/allproduct");
-      }
-    });
+    axios
+      .post("http://next-js-server-inky.vercel.app/all-product", form)
+      .then((data) => {
+        if (data.data.insertedId) {
+          alert("Product added successfully!");
+          route.push("/allproduct");
+        }
+      });
   };
 
   if (loading) return <p>Loading...</p>;
