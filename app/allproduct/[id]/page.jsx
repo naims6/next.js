@@ -1,3 +1,4 @@
+import BackBtn from "@/component/BackBtn";
 import axios from "axios";
 import Image from "next/image";
 
@@ -11,13 +12,7 @@ export default async function ItemDetailsPage({ params }) {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
-      {/* <button
-          onClick={() => history.back()}
-          className="mb-6 text-indigo-600 underline"
-        >
-          ← Back
-        </button> */}
-
+      <BackBtn />
       <div className="bg-white border rounded-xl shadow p-6">
         <div className="h-64 bg-gray-200 rounded-lg mb-6">
           <Image

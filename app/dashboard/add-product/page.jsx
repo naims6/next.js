@@ -2,11 +2,11 @@
 import { AuthContext } from "@/context/AuthContext";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 
 const AddProduct = () => {
   const { user, loading } = use(AuthContext);
-  const route = useRouter();
+  const router = useRouter();
 
   const [form, setForm] = useState({
     title: "",
@@ -33,11 +33,18 @@ const AddProduct = () => {
       });
   };
 
-  if (loading) return <p>Loading...</p>;
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push("/login");
+    }
+  }, [loading, user, router]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   if (!user) {
-    route.push("/login");
-    return;
+    return null;
   }
 
   return (

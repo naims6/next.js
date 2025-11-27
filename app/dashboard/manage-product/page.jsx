@@ -8,7 +8,6 @@ import React, { use, useEffect, useState } from "react";
 export default function ManageProductsPage() {
   const { user, loading } = use(AuthContext);
   const router = useRouter();
-
   const [products, setProducts] = useState([]);
 
   const handleDelete = (id) => {
@@ -32,10 +31,17 @@ export default function ManageProductsPage() {
       });
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push("/login");
+    }
+  }, [loading, user, router]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
   if (!user) {
-    router.push("/login");
-    return;
+    return null;
   }
 
   return (
