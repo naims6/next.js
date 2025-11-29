@@ -40,7 +40,7 @@ The application allows public users to browse products and view details. Authent
 
 ## 🔗 Links
 
-- **Live Demo**: [next-js-tau-pearl.vercel.app]
+- [**Live Demo**:](https://next-js-tau-pearl.vercel.app/)
 
 ---
 
@@ -51,6 +51,6 @@ Follow these steps to set up the project locally.
 ### 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/naims6/next.js.git](https://github.com/naims6/next.js.git)
+git clone https://github.com/naims6/next.js.git
 cd next.js
 ```
